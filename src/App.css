@@ -1,0 +1,28 @@
+.App {
+  background-color: #aec6cf;
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+}
+
+.Home {
+  color: gray;
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 0 25px;
+}
+
+.WeatherCard {
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.WeatherHeader {
+  color: white;
+  margin: 25px;
+  margin-left: 0;
+  font-size: 30px;
+  font-weight: bold;
+}
