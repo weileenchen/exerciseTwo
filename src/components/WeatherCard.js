@@ -6,13 +6,17 @@ function WeatherCard({
   highTemp = "Unknown",
   humidity = "Unknown",
   lowTemp = "Unknown",
+  weatherDescription = "Unknown",
   weatherType = "Unknown",
   windSpeed = "Unknown",
 }) {
   return (
     <section className="WeatherCard">
       <p>
-        WeatherType: <strong>{weatherType}</strong>
+        Weather Type: <strong>{weatherType}</strong>
+      </p>
+      <p>
+        Weather Description: <strong>{weatherDescription}</strong>
       </p>
       <p>
         Current Temperature: <strong>{currentTemp}</strong>

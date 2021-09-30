@@ -21,8 +21,13 @@
 
 .WeatherHeader {
   color: white;
-  margin: 25px;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
   margin-left: 0;
-  font-size: 30px;
-  font-weight: bold;
+  font-size: 25px;
+}
+
+.WeatherHeader > p > a:visited {
+  color: white;
 }
