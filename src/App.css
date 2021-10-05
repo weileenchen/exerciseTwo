@@ -31,3 +31,41 @@
 .WeatherHeader > p > a:visited {
   color: white;
 }
+
+.WeatherImageWrapper {
+  align-items: center;
+  display: flex;
+  font-size: 100px;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.CurrentTemperatureWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.Navigation {
+  display: flex;
+  padding: 20px 0;
+  justify-content: space-evenly;
+}
+
+.Navigation > a {
+  color: gray;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.Navigation > a.Active {
+  border-bottom: 2px solid gray;
+}
+
+.City {
+  font-size: 70px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-transform: lowercase;
+}

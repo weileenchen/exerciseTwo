@@ -2,9 +2,10 @@ import React, { useMemo, useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import WeatherCard from "../components/WeatherCard";
+import API_Key from "../components/API_KEY";
 //useMemo -- a value that must always be present and updated
 
-const APIKey = `3233b5f7573ad1aa7251b901b584598b`;
+const APIKey = API_Key();
 
 //URL Search Params -- i.e. localhost:3000/?city=paris
 //Abstract here for easier use
@@ -44,18 +45,16 @@ function Home() {
     highTemp,
     humidity,
     lowTemp,
-    weatherDescription,
     weatherType,
     windSpeed,
   } = useMemo(() => {
     if (!weatherData) return {};
     return {
       cloudiness: weatherData.clouds.all,
-      currentTemp: `${weatherData.main.temp}`,
-      highTemp: `${weatherData.main.temp_max}`,
+      currentTemp: Math.round(weatherData.main.temp),
+      highTemp: Math.round(weatherData.main.temp_max),
       humidity: weatherData.main.humidity,
-      lowTemp: `${weatherData.main.temp_min}`,
-      weatherDescription: weatherData.weather[0].description,
+      lowTemp: Math.round(weatherData.main.temp_min),
       weatherType: weatherData.weather[0].main,
       windSpeed: weatherData.wind.speed,
     };
@@ -65,14 +64,22 @@ function Home() {
     <main className="App">
       <div className="Home">
         <header className="WeatherHeader">
-          <p>
-            <a href="/?city=Brooklyn">Brooklyn</a>
-          </p>
-          <p>
-            <a href="/?city=Cambridge">Cambridge</a>
-          </p>
+          <nav className="Navigation">
+            <a
+              href="/?city=Brooklyn"
+              className={city === "Brooklyn" && "Active"}
+            >
+              Brooklyn
+            </a>
+            <a
+              href="/?city=Cambridge"
+              className={city === "Cambridge" && "Active"}
+            >
+              Cambridge
+            </a>
+          </nav>
         </header>
-        <h1>{city}</h1>
+        <h1 className="City">{city}</h1>
         <WeatherCard
           cloudiness={cloudiness}
           currentTemp={currentTemp}
@@ -80,7 +87,6 @@ function Home() {
           humidity={humidity}
           lowTemp={lowTemp}
           weatherType={weatherType}
-          weatherDescription={weatherDescription}
           windSpeed={windSpeed}
         />
       </div>
