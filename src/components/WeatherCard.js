@@ -2,6 +2,7 @@ import React from "react";
 import WeatherImage from "./WeatherImage";
 
 function WeatherCard({
+  city = "Unknown",
   cloudiness = "Unknown",
   currentTemp = "Unknown",
   highTemp = "Unknown",
@@ -12,33 +13,41 @@ function WeatherCard({
 }) {
   return (
     <section className="WeatherCard">
-      <div class="WeatherImageWrapper">
-        <WeatherImage weatherType={weatherType} />
+      <h1 className="City">{city}</h1>
+      <div className="WeatherCardInfo">
+        <div className="WeatherCardMain">
+          <div className="CurrentTemperatureWrapper">
+            <p>
+              <strong>{currentTemp}&deg;</strong>
+            </p>
+            <h2 className="">Feels Like</h2>
+          </div>
+          <div class="WeatherImageWrapper">
+            <WeatherImage weatherType={weatherType} />
+          </div>
+        </div>
+        <div className="WeatherDetails">
+          <p>
+            Weather:{" "}
+            <strong>{weatherType === "Clouds" ? "Cloudy" : weatherType}</strong>
+          </p>
+          <p>
+            Highest Temperature: <strong>{highTemp}&deg;</strong>
+          </p>
+          <p>
+            Lowest Temperature: <strong>{lowTemp}&deg;</strong>
+          </p>
+          <p>
+            Cloudiness: <strong>{cloudiness}%</strong>
+          </p>
+          <p>
+            Humidity: <strong>{humidity}%</strong>
+          </p>
+          <p>
+            Wind Speed: <strong>{windSpeed} mph</strong>
+          </p>
+        </div>
       </div>
-      <div className="CurrentTemperatureWrapper">
-        <h2 className="">Current Temperature:</h2>
-        <p>
-          <strong>{currentTemp}</strong>
-        </p>
-      </div>
-      <p>
-        Weather Type: <strong>{weatherType}</strong>
-      </p>
-      <p>
-        Highest Temperature: <strong>{highTemp}</strong>
-      </p>
-      <p>
-        Lowest Temperature: <strong>{lowTemp}</strong>
-      </p>
-      <p>
-        Cloudiness: <strong>{cloudiness}</strong>
-      </p>
-      <p>
-        Humidity: <strong>{humidity}</strong>
-      </p>
-      <p>
-        Wind Speed: <strong>{windSpeed}</strong>
-      </p>
     </section>
   );
 }

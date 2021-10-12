@@ -56,7 +56,7 @@ function Home() {
       humidity: weatherData.main.humidity,
       lowTemp: Math.round(weatherData.main.temp_min),
       weatherType: weatherData.weather[0].main,
-      windSpeed: weatherData.wind.speed,
+      windSpeed: Math.round(weatherData.wind.speed),
     };
   }, [weatherData]);
 
@@ -77,10 +77,16 @@ function Home() {
             >
               Cambridge
             </a>
+            <a href="/?city=Orlando" className={city === "Orlando" && "Active"}>
+              Orlando
+            </a>
+            <a href="/?city=Taipei" className={city === "Taipei" && "Active"}>
+              Taipei
+            </a>
           </nav>
         </header>
-        <h1 className="City">{city}</h1>
         <WeatherCard
+          city={city}
           cloudiness={cloudiness}
           currentTemp={currentTemp}
           highTemp={highTemp}
