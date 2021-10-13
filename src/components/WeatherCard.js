@@ -12,7 +12,12 @@ function WeatherCard({
   windSpeed = "Unknown",
 }) {
   return (
-    <section className="WeatherCard">
+    <section
+      className="WeatherCard"
+      style={{
+        backgroundColor: `rgba(174, 198, 207, ${cloudiness / 100})`,
+      }}
+    >
       <h1 className="City">{city}</h1>
       <div className="WeatherCardInfo">
         <div className="WeatherCardMain">
